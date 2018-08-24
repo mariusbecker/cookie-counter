@@ -8,3 +8,15 @@
 .hidden {
     display: none;
 }
+
+body {
+    height: 100vh;
+}
+
+#bonuselement {
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    border-radius: 50%;
+    position: absolute;
+}
