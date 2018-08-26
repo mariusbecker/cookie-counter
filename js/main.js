@@ -1,12 +1,13 @@
 let cookie = document.getElementById("cookie");
 let counter = document.getElementById("counter");
-let points = 0;
 var intervalID = window.setInterval(subtractpoints, 500);
 var timeoutID = window.setTimeout(bonusevent, 1000);
 let bonuselement = document.getElementById("bonuselement");
+let points = 0;
 
 
 cookie.addEventListener("click", clicker);
+bonuselement.addEventListener("click", pointsplus200);
 
 function clicker() {
     counter.innerHTML = points;
@@ -27,7 +28,18 @@ function subtractpoints() {
 }
 
 function bonusevent() {
-    cookie2.classList.remove("hidden");
+    bonuselement.classList.remove("hidden");
+    document.body.appendChild(bonuselement);
+	var xy = getRandomPosition(bonuselement);
+	bonuselement.style.top = xy[0] + 'px';
+    bonuselement.style.left = xy[1] + 'px';
+    setTimeout(function(){ bonuselement.classList.add("hidden"); }, 1000);
+  }
+
+  function pointsplus200() {
+    points = points + 200;
+    counter.innerHTML = points;
+    bonuselement.classList.add("hidden");    
   }
 
   function getRandomPosition(element) {
@@ -37,9 +49,3 @@ function bonusevent() {
 	var randomY = Math.floor(Math.random()*y);
 	return [randomX,randomY];
 }
-window.onload = function() {
-	document.body.appendChild(bonuselement);
-	var xy = getRandomPosition(bonuselement);
-	bonuselement.style.top = xy[0] + 'px';
-	bonuselement.style.left = xy[1] + 'px';
-} 
