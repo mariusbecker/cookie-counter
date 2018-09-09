@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 #cookie {
     width: 100px;
     height: 100px;
@@ -28,4 +33,13 @@ body {
     right: 0;
     bottom: 0;
     background-color: red;
+}
+
+#pressplay {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    right: 25%;
+    bottom: 25%;
+    background-color: green;
 }
