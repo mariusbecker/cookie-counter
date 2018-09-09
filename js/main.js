@@ -5,11 +5,13 @@ let bonuselement = document.getElementById("bonuselement");
 let gameover = document.getElementById("gameover");
 let pressplay = document.getElementById("pressplay");
 let points = 0;
+var t;
 
 cookie.addEventListener("click", clicker);
 cookie.addEventListener("click", gameoverscreen);
 cookie.addEventListener("click", startscreen);
 bonuselement.addEventListener("click", pointsplus200);
+$("#cookie").one("click", startgame);
 
 function clicker() {
     counter.innerHTML = points;
@@ -24,14 +26,15 @@ function clicker() {
     }
 }
 
-$("#cookie").one("click", function(){
-    setTimeout(bonusevent, 1000);
+function startgame() {
+    t = setTimeout(bonusevent, 2000);
     points = 2;
-});
+}
 
 function gameoverscreen() {
     setInterval(function() {
         if(points == 0) {
+            clearTimeout(t);
             gameover.classList.remove("hidden");
         }
     }, 100);
