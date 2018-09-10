@@ -21,6 +21,11 @@ body {
     background-color: red;
     border-radius: 50%;
     margin: 0 auto;
+    cursor: pointer;
+}
+
+#counter {
+    pointer-events: none;
 }
 
 .hidden {
@@ -28,11 +33,9 @@ body {
 }
 
 #bonuselement {
-    height: 100px;
-    width: 100px;
-    background-color: blue;
-    border-radius: 50%;
     position: absolute;
+    cursor: pointer;
+    font-size: 30px;
 }
 
 #gameover {
@@ -46,8 +49,11 @@ body {
 
 #pressplay {
     position: absolute;
-    top: 25%;
     left: 25%;
     right: 25%;
-    bottom: 25%;
+    width: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    pointer-events: none;
 }
