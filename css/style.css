@@ -20,8 +20,13 @@ body {
     height: 100px;
     background-color: red;
     border-radius: 50%;
-    margin: 0 auto;
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    margin: 0 auto;
 }
 
 #counter {
@@ -56,4 +61,11 @@ body {
     transform: translateY(-50%);
     text-align: center;
     pointer-events: none;
+    z-index: 100;
+}
+
+#gameover-stopwatch {
+    width: auto;
+    text-align: center;
+    margin: 0 auto;
 }

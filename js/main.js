@@ -5,16 +5,25 @@ let gameover = document.getElementById("gameover");
 let pressplay = document.getElementById("pressplay");
 let points = 0;
 var t;
+var a;
+var count;
 var subtractinterval;
 var factor = 1;
+var varpoint = 1;
+
+// Stopwatch
+var time = document.getElementsByClassName("stopwatch"),
+c=0, s=0, m=0, io=0, itv=null;
 
 cookie.addEventListener("click", clicker);
-cookie.addEventListener("click", gameoverscreen);
-cookie.addEventListener("click", startscreen);
 cookie.addEventListener("mousedown", pausesubtractpoints);
 cookie.addEventListener("mouseup", runsubtractionpoints);
 bonuselement.addEventListener("click", pointsx2);
-$("#cookie").one("click", startgame); //jquery event to run a function only one single time
+//run only one single time
+$("#cookie").one("click", startgame);
+$("#cookie").one("click", startscreen);
+$("#cookie").one("click", gameoverscreen); 
+$("#cookie").one("click", playPause);
 
 function clicker() {
     counter.innerHTML = points;
@@ -40,32 +49,28 @@ function runsubtractionpoints(){
 function startgame() {
     t = setTimeout(bonusevent, 2000);
     points = 2;
+    a = window.setInterval(function test(){varpoint = varpoint + 5, console.log (varpoint)}, 2000);
 }
 
 function gameoverscreen() {
     setInterval(function() {
-        if(points == 0) {
+        if(points <= 0) {
             clearTimeout(t);
+            clearInterval(a);
             gameover.classList.remove("hidden");
+            clearInterval(itv);
         }
     }, 100);
 }
 
 function startscreen() {
-    pressplay.classList.add("hidden");   
+    pressplay.classList.add("hidden");
 }
 
+// Subtractpoints steuert die Anzahl Punkte, welche abgezogen werden. Interval = runsubtractionpoints
 function subtractpoints() {
     counter.innerHTML = points;
-    if(points >= 200) {
-        points = points - 9;
-    }
-    if(points >= 100) {
-        points = points - 6;
-    }
-    if(points >= 1) {
-        points = points - 1;
-    }
+    points = points - varpoint;
 }
 
 function bonusevent() {
@@ -96,3 +101,22 @@ function bonusevent() {
 	var randomY = Math.floor(Math.random()*y);
 	return [randomX,randomY];
 }
+
+function padd(n) { // Zero padd minutes and seconds
+    return n<10 ? "0"+n : n;
+  }
+  
+function count() {
+    c = ++c%100;
+    if(!c) {
+        s = ++s%60;
+      if(!s) m=++m%60;
+    }
+    time[0].innerHTML = padd(m) +":"+ padd(s) +"."+ padd(c);
+    time[1].innerHTML = padd(m) +":"+ padd(s) +"."+ padd(c);
+  }
+
+  function playPause() {
+    io = !io;
+    return io ? itv = setInterval(count, 10) : clearInterval(itv);
+  }
