@@ -1,8 +1,8 @@
 {
   "name": "cookie-counter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Cookie counter",
+  "main": "main.js",
   "scripts": {
     "test": ""
   },
@@ -15,5 +15,5 @@
   "bugs": {
     "url": "https://github.com/larsmaeder/cookie-counter/issues"
   },
-  "homepage": "https://github.com/larsmaeder/cookie-counter#readme"
+  "homepage": "https://larsmaeder.github.io/cookie-counter"
 }
