@@ -30,5 +30,3 @@ console.log("hallo");
 ```JS
 clicker();
 ```
-
-Travis test
