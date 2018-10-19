@@ -16,8 +16,8 @@ var time = document.getElementsByClassName("stopwatch"),
 c=0, s=0, m=0, io=0, itv=null;
 
 cookie.addEventListener("click", clicker);
-cookie.addEventListener("mousedown", pausesubtractpoints);
-cookie.addEventListener("mouseup", runsubtractionpoints);
+cookie.addEventListener("mousedown", pause);
+cookie.addEventListener("mouseup", run);
 bonuselement.addEventListener("click", pointsx2);
 //run only one single time
 $("#cookie").one("click", startgame);
@@ -38,12 +38,17 @@ function clicker() {
     }
 }
 
-function pausesubtractpoints(){
+function pause(){
     clearInterval(subtractinterval);
+    document.getElementById("cookie").style.backgroundImage = "url('./assets/beemo-button-active@2x.svg')";
+    clearInterval(itv); 
 }
 
-function runsubtractionpoints(){
+function run(){
     subtractinterval = window.setInterval(subtractpoints, 500);
+    document.getElementById("cookie").style.backgroundImage = "url('./assets/beemo-button@2x.svg')";
+    io = !io;
+    return io ? itv = setInterval(count, 10) : clearInterval(itv); 
 }
 
 function startgame() {
@@ -67,7 +72,7 @@ function startscreen() {
     pressplay.classList.add("hidden");
 }
 
-// Subtractpoints steuert die Anzahl Punkte, welche abgezogen werden. Interval = runsubtractionpoints
+// Subtractpoints steuert die Anzahl Punkte, welche abgezogen werden. Interval = run
 function subtractpoints() {
     counter.innerHTML = points;
     points = points - varpoint;
