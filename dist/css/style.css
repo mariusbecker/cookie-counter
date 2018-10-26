@@ -18,6 +18,10 @@ body {
     color: #3b3b3b;
 }
 
+p {
+    color: #000;
+}
+
 #cookie-background {
     background-image: url("../assets/beemo-full@2x.svg");
     background-repeat: no-repeat;
