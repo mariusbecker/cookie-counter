@@ -3,9 +3,13 @@ let counter = document.getElementById("counter");
 let bonuselement = document.getElementById("bonuselement");
 let gameover = document.getElementById("gameover");
 let pressplay = document.getElementById("pressplay");
+let pluspoints = document.getElementById("pluspoints");
+let minuspoints = document.getElementById("minuspoints");
 let points = 0;
 var t;
 var a;
+var b = 1;
+var c = 1;
 var count;
 var subtractinterval;
 var factor = 1;
@@ -16,8 +20,8 @@ var time = document.getElementsByClassName("stopwatch"),
 c=0, s=0, m=0, io=0, itv=null;
 
 cookie.addEventListener("click", clicker);
-cookie.addEventListener("mousedown", pause);
-cookie.addEventListener("mouseup", run);
+cookie.addEventListener("mousedown", mousedown);
+cookie.addEventListener("mouseup", mouseup);
 bonuselement.addEventListener("click", pointsx2);
 //run only one single time
 $("#cookie").one("click", startgame);
@@ -27,24 +31,29 @@ $("#cookie").one("click", playPause);
 
 function clicker() {
     counter.innerHTML = points;
-    if(points >= 200) {
-        points = points + (3*factor);
+    pluspoints.innerHTML = b; 
+    points = b + points; 
+    if(points >= 300) {
+        b = 4;
     }
-    if(points >= 100) {
-        points = points + (2*factor);
+    else if(points >= 200) {
+        b = 3;
+    }
+    else if(points >= 100) {
+        b = 2;
     }
     else {
-        points = points + (1*factor);
+        b = 1;
     }
 }
 
-function pause(){
+function mousedown(){
     clearInterval(subtractinterval);
     document.getElementById("cookie").style.backgroundImage = "url('./assets/beemo-button-active@2x.svg')";
     clearInterval(itv); 
 }
 
-function run(){
+function mouseup(){
     subtractinterval = window.setInterval(subtractpoints, 500);
     document.getElementById("cookie").style.backgroundImage = "url('./assets/beemo-button@2x.svg')";
     io = !io;
@@ -54,7 +63,11 @@ function run(){
 function startgame() {
     t = setTimeout(bonusevent, 2000);
     points = 2;
-    a = window.setInterval(function test(){varpoint = varpoint + 5, console.log (varpoint)}, 2000);
+    minuspoints.innerHTML = varpoint;
+    a = window.setInterval(function test(){
+        varpoint = varpoint + 1;
+        minuspoints.innerHTML = varpoint;
+    }, 2000);
 }
 
 function gameoverscreen() {
@@ -72,7 +85,7 @@ function startscreen() {
     pressplay.classList.add("hidden");
 }
 
-// Subtractpoints steuert die Anzahl Punkte, welche abgezogen werden. Interval = run
+// Subtractpoints steuert die Anzahl Punkte, welche abgezogen werden. Interval = mouseup
 function subtractpoints() {
     counter.innerHTML = points;
     points = points - varpoint;
@@ -87,11 +100,11 @@ function bonusevent() {
     setTimeout(function(){ bonuselement.classList.add("hidden"); }, 5000);
   }
 
-  function pointsx2() {
-    setTimeout(function(){ factor = 2; }, 1);
-    setTimeout(function(){ factor = 1; }, 5000);
+function pointsx2() {
+    setTimeout(function(){ c = 2; }, 1);
+    setTimeout(function(){ c = 1; }, 5000);
     bonuselement.classList.add("hidden");    
-  } 
+} 
  
   function pointsplus200() {
     points = points + 200;
