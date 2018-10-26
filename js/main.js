@@ -57,7 +57,7 @@ function mouseup(){
     subtractinterval = window.setInterval(subtractpoints, 500);
     document.getElementById("cookie").style.backgroundImage = "url('./assets/beemo-button@2x.svg')";
     io = !io;
-    return io ? itv = setInterval(count, 10) : clearInterval(itv); 
+    return itv = setInterval(count, 10); 
 }
 
 function startgame() {
@@ -67,6 +67,7 @@ function startgame() {
     a = window.setInterval(function test(){
         varpoint = varpoint + 1;
         minuspoints.innerHTML = varpoint;
+        console.log(varpoint);
     }, 2000);
 }
 
