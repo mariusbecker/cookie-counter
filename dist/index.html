@@ -18,17 +18,16 @@
         <a href="javascript:history.go(0)">Restart</a>
         <div id="gameover-stopwatch" class="stopwatch"></div>
     </div>
+    <div id="energy">
+        <div id="counter">500/1000</div>
+        <div class="rel">
+            <div id="battery"></div>
+            <progress id="progressbar" value="500" max="1000"></progress>
+        </div>
+    </div>
     <div id="cookie"></div>
     <div id="cookie-background"></div>
-    <div>Energie: </div><div id="counter">0</div>
-    <progress id="progressbar" value="500" max="1000"></progress>
-
-    <div>Akkulaufzeit:</div>
     <div class="stopwatch">00:00:00</div>
-    <div>Energie +:</div>
-    <div id="pluspoints">0</div>
-    <div>Energie –:</div>
-    <div id="minuspoints">0</div>
     <div id="bonuselement" class="red hidden animated infinite pulse">+100</div>
     </div>
     <script src="./js/main.js"></script>

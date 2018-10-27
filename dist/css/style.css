@@ -15,10 +15,6 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: #25d9ae;
-    color: #3b3b3b;
-}
-
-p {
     color: #000;
 }
 
@@ -28,9 +24,8 @@ p {
     background-size: cover;
     width: 300px;
     height: 300px;
-    cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 0;
     right: 0;
     transform: translateY(-50%);
@@ -39,14 +34,14 @@ p {
 }
 
 #cookie {
-    background-image: url("../assets/beemo-button@2x.svg");
+    background-image: url("../assets/svg/beemo-button@2x.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 300px;
-    height: 300px;
+    width: 130px;
+    height: 135px;
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: calc(60% + 65px);
     left: 0;
     right: 0;
     transform: translateY(-50%);
@@ -54,8 +49,62 @@ p {
     z-index: 20;
 }
 
+#battery {
+    background-image: url("../assets/svg/battery.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 180px;
+    height: 99px;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+}
+
+#energy {
+    width: 180px;
+    height: 90px;
+    position: relative;
+    margin: 0 auto;
+    z-index: 20;
+    text-align: center;
+    padding: 80px;
+}
+
+.rel {
+    position: relative;
+}
+
+progress {
+    width: 155px;
+    height: 78px;
+    appearance: none;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    display: block;
+    color: #44cb60;
+    background-color: #c9feda;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #c9feda;
+}
+
+progress::-moz-progress-bar { 
+  background-color: #44cb60;	
+}
+
+progress::-webkit-progress-value {
+  background-color: #44cb60;
+}
+
 #counter {
     pointer-events: none;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
 }
 
 .hidden {
@@ -88,12 +137,19 @@ p {
     left: 25%;
     right: 25%;
     width: 50%;
-    top: calc(50% + 60px);
+    top: calc(60% + 60px);
     transform: translateY(-50%);
     text-align: center;
     pointer-events: none;
     z-index: 100;
     font-size: 0.8rem;
+}
+
+.stopwatch {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: #c9feda;
 }
 
 #gameover-stopwatch {

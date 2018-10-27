@@ -1,22 +1,22 @@
-var cookie = document.getElementById("cookie");
-var counter = document.getElementById("counter");
-var bonuselement = document.getElementById("bonuselement");
-var gameover = document.getElementById("gameover");
-var pressplay = document.getElementById("pressplay");
-var pluspoints = document.getElementById("pluspoints");
-var minuspoints = document.getElementById("minuspoints");
-var progressbar = document.getElementById("progressbar");
-var points = 500;
+// Variables
+let cookie = document.getElementById("cookie");
+let counter = document.getElementById("counter");
+let bonuselement = document.getElementById("bonuselement");
+let gameover = document.getElementById("gameover");
+let pressplay = document.getElementById("pressplay");
+let pluspoints = document.getElementById("pluspoints");
+let minuspoints = document.getElementById("minuspoints");
+let progressbar = document.getElementById("progressbar");
+let points = 500;
+let b = 1;
+let factor = 1;
+let varpoint = 2;
+var count;
 var t;
 var a;
-var b = 1;
-var count;
 var subtractinterval;
-var factor = 1;
-var varpoint = 1;
-
 // Stopwatch variables
-var time = document.getElementsByClassName("stopwatch"),
+let time = document.getElementsByClassName("stopwatch"),
 c=0, s=0, m=0, io=0, itv=null;
 
 // Eventlisteners
@@ -24,26 +24,23 @@ cookie.addEventListener("click", clicker);
 cookie.addEventListener("mousedown", mousedown);
 cookie.addEventListener("mouseup", mouseup);
 bonuselement.addEventListener("click", pointsplus100);
-
-//Run only one single time
+// Run only one single time
 $("#cookie").one("click", startgame);
 $("#cookie").one("click", startscreen);
 $("#cookie").one("click", gameoverscreen); 
 $("#cookie").one("click", playPause);
 
 function clicker() {
-    counter.innerHTML = points;
-    pluspoints.innerHTML = b; 
-    progressbar.value = points;
+    counter.innerHTML = points + "/" + progressbar.max;
     points = b + points; 
     if(points >= 300) {
-        b = 4;
+        b = 1;
     }
     else if(points >= 200) {
-        b = 3;
+        b = 1;
     }
     else if(points >= 100) {
-        b = 2;
+        b = 1;
     }
     else {
         b = 1;
@@ -52,13 +49,13 @@ function clicker() {
 
 function mousedown(){
     clearInterval(subtractinterval);
-    document.getElementById("cookie").style.backgroundImage = "url('./assets/beemo-button-active@2x.svg')";
+    document.getElementById("cookie").style.backgroundImage = "url('./assets/svg/beemo-button-active@2x.svg')";
     clearInterval(itv); 
 }
 
 function mouseup(){
     subtractinterval = window.setInterval(subtractpoints, 500);
-    document.getElementById("cookie").style.backgroundImage = "url('./assets/beemo-button@2x.svg')";
+    document.getElementById("cookie").style.backgroundImage = "url('./assets/svg/beemo-button@2x.svg')";
     io = !io;
     return itv = setInterval(count, 10); 
 }
@@ -66,21 +63,21 @@ function mouseup(){
 function startgame() {
     t = setInterval(bonusevent, 6000);
     points = 500;
-    minuspoints.innerHTML = varpoint;
     a = window.setInterval(function(){
-        varpoint = varpoint + 1;
-        minuspoints.innerHTML = varpoint;
+        varpoint = varpoint + 2;
         console.log(varpoint);
     }, 2000);
 }
 
 function gameoverscreen() {
     setInterval(function() {
+        progressbar.value = points;
         if(points <= 0) {
             clearTimeout(t);
             clearInterval(a);
             gameover.classList.remove("hidden");
             clearInterval(itv);
+            clearInterval(subtractinterval);
         }
     }, 100);
 }
@@ -91,7 +88,7 @@ function startscreen() {
 
 // Subtractpoints steuert die Anzahl Punkte, welche abgezogen werden. Interval = mouseup
 function subtractpoints() {
-    counter.innerHTML = points;
+    counter.innerHTML = points + "/" + progressbar.max;
     points = points - varpoint;
 }
 
@@ -106,7 +103,7 @@ function bonusevent() {
 
   function pointsplus100() {
     points = points + 100;
-    counter.innerHTML = points;
+    counter.innerHTML = points + "/" + progressbar.max;
     bonuselement.classList.add("hidden");    
   }
 
