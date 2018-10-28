@@ -18,30 +18,20 @@ body {
     color: #000;
 }
 
-#cookie-background {
-    background-image: url("../assets/beemo-full@2x.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top: 60%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    margin: 0 auto;
-    z-index: 10;
+h1 {
+    font-size: 4rem;
+    margin: 10px;
 }
 
 #cookie {
     background-image: url("../assets/svg/beemo-button@2x.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 130px;
-    height: 135px;
+    width: 200px;
+    height: 208px;
     cursor: pointer;
     position: absolute;
-    top: calc(60% + 65px);
+    top: 450px;
     left: 0;
     right: 0;
     transform: translateY(-50%);
@@ -53,16 +43,16 @@ body {
     background-image: url("../assets/svg/battery.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 180px;
-    height: 99px;
+    width: 150px;
+    height: 83px;
     position: absolute;
     top: 0;
     z-index: 20;
 }
 
 #energy {
-    width: 180px;
-    height: 90px;
+    width: 150px;
+    height: 75px;
     position: relative;
     margin: 0 auto;
     z-index: 20;
@@ -75,8 +65,8 @@ body {
 }
 
 progress {
-    width: 155px;
-    height: 78px;
+    width: 125px;
+    height: 66px;
     appearance: none;
     padding: 0;
     border: none;
@@ -104,7 +94,8 @@ progress::-webkit-progress-value {
 #counter {
     pointer-events: none;
     margin-bottom: 10px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    transform: translateX(-8px);
 }
 
 .hidden {
@@ -123,13 +114,14 @@ progress::-webkit-progress-value {
 }
 
 #gameover {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: #fc3d70;
     z-index: 200;
+    text-align: center;
 }
 
 #pressplay {
@@ -137,23 +129,55 @@ progress::-webkit-progress-value {
     left: 25%;
     right: 25%;
     width: 50%;
-    top: calc(60% + 60px);
+    top: 442px;
     transform: translateY(-50%);
     text-align: center;
     pointer-events: none;
     z-index: 100;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .stopwatch {
     width: 100%;
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #c9feda;
+    margin-top: 10px;
 }
 
 #gameover-stopwatch {
-    width: auto;
     text-align: center;
     margin: 0 auto;
+    color: #000 !important;
 }
+
+#gameover-content {
+    position: relative;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    margin: 0 auto;
+}
+
+#restart {
+    padding: 30px;
+    margin: 30px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 3px;
+    -webkit-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.7);
+    -moz-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.7);
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.7);
+    display: inline-block;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }

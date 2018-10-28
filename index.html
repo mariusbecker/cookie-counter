@@ -8,15 +8,10 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
+<body class="noselect">
     <div id="game">
     <div id="pressplay" class="animated infinite flash">
         <p>Drück<br>mich</p>
-    </div>
-    <div id="gameover" class="hidden">
-        <p>GAMEOVER</p>
-        <a href="javascript:history.go(0)">Restart</a>
-        <div id="gameover-stopwatch" class="stopwatch"></div>
     </div>
     <div id="energy">
         <div id="counter">500/1000</div>
@@ -25,10 +20,16 @@
             <progress id="progressbar" value="500" max="1000"></progress>
         </div>
     </div>
-    <div id="cookie"></div>
-    <div id="cookie-background"></div>
     <div class="stopwatch">00:00:00</div>
+    <div id="cookie"></div>
     <div id="bonuselement" class="red hidden animated infinite pulse">+100</div>
+    </div>
+    <div id="gameover" class="hidden">
+        <div id="gameover-content">
+            <h1>Energie leer :(</h1>
+            <div id="gameover-stopwatch" class="stopwatch"></div>
+            <a id="restart" href="javascript:history.go(0)">Neustart</a>
+        </div>
     </div>
     <script src="./js/main.js"></script>
 </body>
