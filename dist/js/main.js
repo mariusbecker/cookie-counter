@@ -33,14 +33,9 @@ $("#cookie").one("click", playPause);
 function clicker() {
     counter.innerHTML = points + "/" + progressbar.max;
     points = b + points; 
-    if(points >= 300) {
-        b = 1;
-    }
-    else if(points >= 200) {
-        b = 1;
-    }
-    else if(points >= 100) {
-        b = 1;
+    if(points >= 1000) {
+        b = 0;
+        points = 1000;
     }
     else {
         b = 1;
@@ -102,9 +97,14 @@ function bonusevent() {
   }
 
   function pointsplus100() {
-    points = points + 100;
+    if(points >= 900) {
+        points = 1000;
+    }
+    else {
+        points = points + 100;
+    } 
     counter.innerHTML = points + "/" + progressbar.max;
-    bonuselement.classList.add("hidden");    
+    bonuselement.classList.add("hidden");   
   }
 
   function getRandomPosition(element) {
