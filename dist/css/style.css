@@ -111,6 +111,12 @@ progress::-webkit-progress-value {
 
 .red {
     color: #fc3d70;
+    text-shadow: 2px 2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, -2px -2px 0 #000, 2px 0px 0 #000, 0px 2px 0 #000, -2px 0px 0 #000, 0px -2px 0 #000;
+}
+
+.yellow {
+    color: #fcef3d;
+    text-shadow: 2px 2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, -2px -2px 0 #000, 2px 0px 0 #000, 0px 2px 0 #000, -2px 0px 0 #000, 0px -2px 0 #000;
 }
 
 #gameover {
@@ -149,6 +155,8 @@ progress::-webkit-progress-value {
     text-align: center;
     margin: 0 auto;
     color: #000 !important;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 #gameover-content {
@@ -170,6 +178,11 @@ progress::-webkit-progress-value {
     -moz-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.7);
     box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.7);
     display: inline-block;
+    text-decoration: none;
+}
+
+#restart:hover {
+    opacity: 0.8;
 }
 
 .noselect {
@@ -181,3 +194,18 @@ progress::-webkit-progress-value {
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome and Opera */
   }
+  
+@media only screen and (max-width: 400px) {
+    
+    h1 {
+        font-size: 2rem;
+    }
+
+    .stopwatch {
+        font-size: 2rem;
+    }
+
+    .restart {
+        font-size: 0.7rem;
+    }
+}

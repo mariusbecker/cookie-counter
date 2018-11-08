@@ -135,5 +135,3 @@ function count() {
     io = !io;
     return io ? itv = setInterval(count, 10) : clearInterval(itv);
   }
-
-//   points = maths.min(100/5);
