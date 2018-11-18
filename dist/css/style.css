@@ -194,7 +194,26 @@ progress::-webkit-progress-value {
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome and Opera */
   }
-  
+
+a.back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 900;
+    background-image: url("../assets/svg/back.svg");
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 27px;
+    font-size: 0.75rem;
+    color: #c9feda;
+    padding-left: 50px;
+    padding-top: 13px;
+}
+
+a.back:active, a.back:hover, a.back:link, a.back:visited {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 420px) {
     
     h1 {
