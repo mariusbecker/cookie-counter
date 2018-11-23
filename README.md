@@ -1,6 +1,10 @@
 # Cookie Counter
 [![Build Status](https://travis-ci.org/larsmaeder/cookie-counter.svg?branch=master)](https://travis-ci.org/larsmaeder/cookie-counter)
 
+In unserem digitalen, mobilen Zeitalter machen wir uns von vielerlei Dingen abhängig. Besonders nach der Laufzeit der Batterien aller Geräte, welche wir tagtäglich mit uns führen, bestimmen unseren Alltag. 
+
+Das Game «Energy Clicker» wiederspiegelt auf eine verspielte Art den alltäglichen Stress, dass unsere Batterien leer sind.
+
 ## License
 
 ### MIT
